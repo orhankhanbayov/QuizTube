@@ -2,7 +2,9 @@ import Quiz from '../quiz/quiz';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Circles } from 'react-loader-spinner';
-
+import background from '../../public/images/background.jpg';
+import logo from '../../public/images/logo.png';
+import './homepage.css';
 const HomePage = () => {
   const [quiz, setQuiz] = useState(null);
   const [link, setLink] = useState('');
@@ -34,16 +36,30 @@ const HomePage = () => {
   };
 
   return (
-    <div>
-      <h2>QuizTube</h2>
-      <input
-        type="text"
-        placeholder="link"
-        value={link}
-        onChange={(event) => setLink(event.target.value)}
-      />
-      <input type="submit" onClick={getQuestions} />
-
+    <div
+      style={{
+        backgroundImage: 'url(' + background + ')',
+        backgroundSize: 'cover',
+        height: '100vh',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+      }}
+    >
+      <div className="container">
+        <div className="logo">
+          <img id="logo" src={logo} alt="logo" />
+        </div>
+      </div>
+      <div className="searchContainer">
+        <input
+          className="input"
+          type="text"
+          placeholder="Please enter your chosen Youtube video link"
+          value={link}
+          onChange={(event) => setLink(event.target.value)}
+        />
+        <input className="submit" type="submit" onClick={getQuestions} />
+      </div>
       {loading ? (
         <Circles
           height="80"
