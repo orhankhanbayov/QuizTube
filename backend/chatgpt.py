@@ -2,7 +2,8 @@ import openai
 import re
 import json
 from youtube_transcript_api import YouTubeTranscriptApi
-openai.api_key = "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"
+openai.api_key = os.getenv('API_KEY')
+
 a = YouTubeTranscriptApi.get_transcript("ORMx45xqWkA")
 texts = []
 for obj in a:
