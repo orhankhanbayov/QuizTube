@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './quiz.css';
+import background from '../../public/images/background.jpg';
+import logo from '../../public/images/logo.png';
+
 const Quiz = () => {
   const [quiz, setQuiz] = useState(null);
   const [answers, setAnswers] = useState([]);
@@ -38,8 +41,22 @@ const Quiz = () => {
   };
 
   return (
-    <div>
-      <h2>Quiz</h2>
+    <div
+      style={{
+        backgroundImage: 'url(' + background + ')',
+        backgroundSize: 'cover',
+        height: '100vh',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+      }}
+    >
+      <div className="container">
+        <a href="/">
+          <div className="logo">
+            <img id="logo" src={logo} alt="logo" />
+          </div>
+        </a>
+      </div>
       <div>
         {quiz &&
           quiz.data &&
@@ -51,7 +68,7 @@ const Quiz = () => {
                 : 'incorrect'
               : '';
             return (
-              <div key={q.question}>
+              <div key={q.question} className="quiz">
                 {q.question} <br></br>
                 {q.choices.map((choice) => (
                   <div key={choice}>
@@ -84,7 +101,11 @@ const Quiz = () => {
               </div>
             );
           })}
-        <button onClick={handleSubmit}>Submit Answers</button>
+        <div className="quiz">
+          <button className="submitQuiz" onClick={handleSubmit}>
+            Submit
+          </button>
+        </div>
       </div>
     </div>
   );

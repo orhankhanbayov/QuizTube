@@ -5,14 +5,16 @@ import { Circles } from 'react-loader-spinner';
 import background from '../../public/images/background.jpg';
 import logo from '../../public/images/logo.png';
 import './homepage.css';
+
 const HomePage = () => {
   const [quiz, setQuiz] = useState(null);
   const [link, setLink] = useState('');
   const [loading, setLoading] = useState(false);
+  const [submitting, setSubmitting] = useState(false); // New state variable
   const navigate = useNavigate();
 
   const getQuestions = async () => {
-    setLoading(true);
+    setSubmitting(true); // Set submitting to true when the form is being submitted
     try {
       const response = await fetch('/api/submit', {
         method: 'POST',
@@ -30,7 +32,7 @@ const HomePage = () => {
     } catch (error) {
       console.error(error);
     } finally {
-      setLoading(false);
+      setSubmitting(false); // Set submitting back to false after the form is submitted
       navigate('/quiz');
     }
   };
@@ -50,6 +52,11 @@ const HomePage = () => {
           <img id="logo" src={logo} alt="logo" />
         </div>
       </div>
+      <div className="about">
+        <h2>
+          Enter a Youtube video link to get a multiple choice quiz on the video
+        </h2>
+      </div>
       <div className="searchContainer">
         <input
           className="input"
@@ -58,21 +65,31 @@ const HomePage = () => {
           value={link}
           onChange={(event) => setLink(event.target.value)}
         />
-        <input className="submit" type="submit" onClick={getQuestions} />
+        <button
+          className="submit"
+          type="button"
+          onClick={getQuestions}
+          disabled={submitting}
+        >
+          {submitting ? (
+            <Circles
+              height="20"
+              width="20"
+              color="#ffffff"
+              ariaLabel="circles-loading"
+              wrapperStyle={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+              wrapperClass=""
+              visible={true}
+            />
+          ) : (
+            'Submit'
+          )}
+        </button>
       </div>
-      {loading ? (
-        <Circles
-          height="80"
-          width="80"
-          color="#4fa94d"
-          ariaLabel="circles-loading"
-          wrapperStyle={{}}
-          wrapperClass=""
-          visible={true}
-        />
-      ) : (
-        ''
-      )}
     </div>
   );
 };
