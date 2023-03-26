@@ -16,7 +16,7 @@ const HomePage = () => {
   const getQuestions = async () => {
     setSubmitting(true); // Set submitting to true when the form is being submitted
     try {
-      const response = await fetch('/api/submit', {
+      const response = await fetch('https://quiztube.onrender.com/api/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
