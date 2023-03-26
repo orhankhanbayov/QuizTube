@@ -4,12 +4,14 @@ import requests
 import openai
 import re
 import json
+from flask_cors import CORS
+import os
 
 openai.api_key = "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"
 
 
 app = Flask(__name__)
-
+CORS(app)
 @app.route('/api/submit', methods=['POST'])
 def submit_data():
     data = request.json
@@ -34,7 +36,8 @@ def submit_data():
     python_data = json.loads(string_data)
     # add delete the mp4 file
     response = {'data': python_data}
+    os.remove(link)
     return jsonify(response)
-
+   
 if __name__ == '__main__':
     app.run(debug=True)
