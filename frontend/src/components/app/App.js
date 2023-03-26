@@ -1,14 +1,15 @@
 import './App.css';
 import LoginForm from '../auth/LoginForm';
 import SignUpForm from '../user/SignUpForm';
+import HomePage from '../homepage/homepage';
 import React, { useState } from 'react';
 import { useNavigate, Routes, Route } from 'react-router-dom';
-
-const App = () => {
+import Quiz from '../quiz/quiz';
+const App = ({ navigate }) => {
   return (
     <Routes>
-      <Route path="/login" element={<LoginForm navigate={useNavigate()} />} />
-      <Route path="/signup" element={<SignUpForm navigate={useNavigate()} />} />
+      <Route path="/" element={<HomePage navigate={useNavigate()} />} />
+      <Route path="/quiz" element={<Quiz navigate={useNavigate()} />} />
     </Routes>
   );
 };
