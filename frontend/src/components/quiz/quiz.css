@@ -1,0 +1,9 @@
+input[type='radio'].correct {
+  border: 2px solid green;
+  background-color: lightgreen;
+}
+
+input[type='radio'].incorrect {
+  border: 2px solid red;
+  background-color: lightcoral;
+}
