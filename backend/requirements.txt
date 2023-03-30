@@ -5,3 +5,4 @@ openai==0.27.2
 Flask-Cors==3.0.10
 gunicorn==20.1.0
 python-dotenv
+youtube_transcript_api
