@@ -35,14 +35,12 @@ def submit_data():
         texts.append(obj['text'])
     text = ''.join(texts)
 
-    print(text)
     response = openai.Completion.create(
       model="text-davinci-003",
       prompt=(f"Generate 5 multiple choice questions based on the following text and return with answers in an array of json objects, one for each questions containing the question, choices and answer:{text} "),
       max_tokens=3000,
       temperature=0
     )
-    print(response)
     string_data = response["choices"][0].text
     python_data = json.loads(string_data)
     
