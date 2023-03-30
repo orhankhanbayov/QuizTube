@@ -102,9 +102,15 @@ const Quiz = () => {
             );
           })}
         <div className="quiz">
-          <button className="submitQuiz" onClick={handleSubmit}>
-            Submit
-          </button>
+          <h2>
+            {!quiz ? (
+              'You have selected a video that is too long, please try again'
+            ) : (
+              <button className="submitQuiz" onClick={handleSubmit}>
+                Submit
+              </button>
+            )}
+          </h2>
         </div>
       </div>
     </div>

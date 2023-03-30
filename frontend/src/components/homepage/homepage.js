@@ -13,6 +13,10 @@ const HomePage = () => {
   const [submitting, setSubmitting] = useState(false); // New state variable
   const navigate = useNavigate();
 
+  useEffect(() => {
+    localStorage.setItem('quiz', null);
+  }, []);
+
   const getQuestions = async () => {
     setSubmitting(true); // Set submitting to true when the form is being submitted
     try {
