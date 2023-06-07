@@ -58,14 +58,14 @@ const HomePage = () => {
       </div>
       <div className="about">
         <h2>
-          Enter a Youtube video link to get a multiple choice quiz on the video
+          Enter a Youtube video link to get a multiple choice quiz (only works with short videos at the moment)
         </h2>
       </div>
       <div className="searchContainer">
         <input
           className="input"
           type="text"
-          placeholder="Please enter your chosen Youtube video link"
+          placeholder="YouTube Link or Video ID"
           value={link}
           onChange={(event) => setLink(event.target.value)}
         />
