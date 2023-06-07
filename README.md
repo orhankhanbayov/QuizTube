@@ -28,9 +28,6 @@ Before you begin, ensure you have met the following requirements:
 
 1. Clone the repository:
 
-```
-git clone https://github.com/your-username/quiztube.git
-```
 
 2. Change to the project directory:
 
