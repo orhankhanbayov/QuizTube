@@ -58,7 +58,7 @@ def submit_data():
                 "content": f"Generate 5 multiple choice questions based on the following text and return with answers in an array of json objects, one for each questions containing the question, choices and answer: {text}"
             }
         ],
-        max_tokens=16000,
+        max_tokens=15739,
         temperature=0
     )
 
