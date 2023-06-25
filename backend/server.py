@@ -55,10 +55,10 @@ def submit_data():
             },
             {
                 "role": "user",
-                "content": f"Generate 5 multiple choice questions based on the following text and return with answers in an array of json objects, one for each questions containing the question, choices and answer: {text}"
+                "content": f"(only return the json object and nothing else) Generate 5 multiple choice questions based on the following text and return with answers in an array of json objects, one for each questions containing the question, choices and answer: {text}"
             }
         ],
-        max_tokens=12000,
+        max_tokens=15000,
         temperature=0
     )
 
